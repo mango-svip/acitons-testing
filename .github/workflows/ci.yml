@@ -11,7 +11,10 @@ jobs:
       uses: actions/checkout@master
     - name: Curl-hook
       run: |
-        curl https://sc.ftqq.com/SCU70464Te72ce4e59476b6a3813bc8725e4820845dfe1bcecd234.send?text=testGithubActions
+        curl $PUSH_URL\?text=testGithubActions
+      env: 
+        PUSH_URL: ${{ secrets.PUSH_URL }}
+        
 
     # - name: Build and Deploy
     #   uses: JamesIves/github-pages-deploy-action@master
